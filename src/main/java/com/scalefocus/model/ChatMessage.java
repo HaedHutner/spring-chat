@@ -6,6 +6,11 @@ public class ChatMessage {
     private String message;
     private long messageId;
 
+    public ChatMessage(User sender, String message) {
+        this.sender = sender;
+        this.message = message;
+    }
+
     public User getSender() {
         return sender;
     }
@@ -28,11 +33,5 @@ public class ChatMessage {
 
     public void setMessageId(long messageId) {
         this.messageId = messageId;
-    }
-
-    public ChatMessage(User sender, String message) {
-
-        this.sender = sender;
-        this.message = message;
     }
 }

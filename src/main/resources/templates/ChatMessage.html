@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Chat Messages</title>
+</head>
+<body>
+    <h1><center>Chat Room</center></h1>
+
+    <table>
+        <th>
+            <tr>
+                <td>User</td>
+                <td>Message</td>
+            </tr>
+        </th>
+        <tr th:each="msg : ${messages}">
+            <td th:text="${msg.sender.nickname}"></td>
+            <td th:text="${msg.message}"></td>
+        </tr>
+    </table>
+
+    <footer>
+        <form action="#" th:action="@{channel}" method="post">
+            <p>Messsage: <input type="text" name="msg"> <input type="submit" value="Send"></p>
+        </form>
+    </footer>
+</body>
+</html>

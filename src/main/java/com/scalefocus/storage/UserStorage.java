@@ -8,9 +8,7 @@ import java.util.*;
 @Component
 public class UserStorage {
 
-    private static UserStorage instance;
-
-    private Map<String, User> users = new HashMap<>();
+    private static Map<String, User> users = new HashMap<>();
 
     private UserStorage() {
     }
@@ -20,16 +18,15 @@ public class UserStorage {
     }
 
     public void addUser(User user) {
-        this.users.put(user.getSessionId(), user);
+        try {
+            users.put(user.getSessionId(), user);
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
     }
 
     public Collection<User> getAll() {
         return users.values();
-    }
-
-    public static UserStorage getInstance() {
-        if (instance == null) instance = new UserStorage();
-        return instance;
     }
 
 }
