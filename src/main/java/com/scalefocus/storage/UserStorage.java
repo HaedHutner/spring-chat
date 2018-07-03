@@ -1,9 +1,9 @@
 package com.scalefocus.storage;
 
 import com.scalefocus.model.User;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -21,6 +21,10 @@ public class UserStorage {
 
     public void addUser(User user) {
         this.users.put(user.getSessionId(), user);
+    }
+
+    public Collection<User> getAll() {
+        return users.values();
     }
 
 }

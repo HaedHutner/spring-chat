@@ -1,13 +1,21 @@
 package com.scalefocus.model;
 
+import java.util.UUID;
+
 public class User {
 
     private String nickname;
     private String sessionId;
 
-    public User(String nickname, String sessionId) {
+    {
+        this.sessionId = UUID.randomUUID().toString();
+    }
+
+    public User(String nickname) {
         this.nickname = nickname;
-        this.sessionId = sessionId;
+    }
+
+    public User() {
     }
 
     public String getNickname() {
