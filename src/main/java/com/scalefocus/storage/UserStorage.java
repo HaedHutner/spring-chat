@@ -18,11 +18,7 @@ public class UserStorage {
     }
 
     public void addUser(User user) {
-        try {
             users.put(user.getSessionId(), user);
-        } catch ( Exception e ) {
-            e.printStackTrace();
-        }
     }
 
     public Collection<User> getAll() {

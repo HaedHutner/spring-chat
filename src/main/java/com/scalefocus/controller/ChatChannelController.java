@@ -37,10 +37,8 @@ public class ChatChannelController {
             @RequestParam("msg") String message,
             @CookieValue(UserController.SESSION_ID_KEY) String sessionId
     ) {
-        users.getUser(sessionId).ifPresent((user) -> {
-            channel.addMessage(new ChatMessage(user, message));
-        });
-
+        users.getUser(sessionId).ifPresent((user) -> channel.addMessage(new ChatMessage(user, message)));
+        
         return "redirect:/channel";
     }
 }

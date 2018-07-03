@@ -10,11 +10,13 @@
     <table>
         <th>
             <tr>
+                <td>Timestamp</td>
                 <td>User</td>
                 <td>Message</td>
             </tr>
         </th>
         <tr th:each="msg : ${messages}">
+            <td th:text="${msg.getTimeStampAsString()}"></td>
             <td th:text="${msg.sender.nickname}"></td>
             <td th:text="${msg.message}"></td>
         </tr>
