@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 public class UserController {
 
     public static final String SESSION_ID_KEY = "SessionId";
-    public static final String SESSION_ID_DEFAULT = "none";
 
     UserStorage storage;
 
@@ -36,7 +35,10 @@ public class UserController {
     ) {
         storage.addUser(user);
 
-        response.addCookie(new Cookie(SESSION_ID_KEY, user.getSessionId()));
+        Cookie cookie = new Cookie(SESSION_ID_KEY, user.getSessionId());
+        cookie.setPath("/");
+
+        response.addCookie(cookie);
 
         return "redirect:/users/all";
     }

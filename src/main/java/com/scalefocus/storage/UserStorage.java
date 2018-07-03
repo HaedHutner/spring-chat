@@ -3,17 +3,17 @@ package com.scalefocus.storage;
 import com.scalefocus.model.User;
 import org.springframework.stereotype.Component;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Component
 public class UserStorage {
 
-    private Map<String,User> users = new HashMap<>();
+    private static UserStorage instance;
 
-    private UserStorage() {}
+    private Map<String, User> users = new HashMap<>();
+
+    private UserStorage() {
+    }
 
     public Optional<User> getUser(String sessionId) {
         return Optional.ofNullable(users.get(sessionId));
@@ -25,6 +25,11 @@ public class UserStorage {
 
     public Collection<User> getAll() {
         return users.values();
+    }
+
+    public static UserStorage getInstance() {
+        if (instance == null) instance = new UserStorage();
+        return instance;
     }
 
 }
