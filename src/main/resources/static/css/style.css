@@ -6,24 +6,8 @@ html {
     width: 100%;
 }
 
-#timestamp {
-    float: left;
-    width: 10%;
-}
-
-#users {
-    float: left;
-    width: 20%;
-}
-
-#messageBodies {
-    float: left;
-    width: 50%;
-}
-
-#actions {
-    float: right;
-    width: 20%;
+.hidden {
+    display: none;
 }
 
 .message {
@@ -32,20 +16,25 @@ html {
 
 .message .timestamp {
     float: left;
-    margin-right: 10px;
+    margin-right: 5px;
+    width: 10%;
 }
 
 .message .user {
     float: left;
-    margin-right: 10px;
+    margin-right: 5px;
+    width: 10%;
 }
 
 .message .msg {
-    margin-right: 10px;
+    float: left;
+    margin-right: 5px;
+    width: 65%;
 }
 
 .message .delete {
-    display: none;
+    float: left;
+    width: 10%;
 }
 
 .msgSend {
