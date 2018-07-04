@@ -33,7 +33,7 @@
                     <input type="submit" value="Rename">
                 </form>
 
-                <form action="#" th:action="@{/deleteChannel}" method="get">
+                <form action="#" th:action="@{/deleteChannel}" method="post">
                     <input class="hidden" type="text" name="channelId" th:value="${channel.id}">
                     <input type="submit" value="Delete">
                 </form>

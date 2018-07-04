@@ -76,9 +76,10 @@ public class ChatChannelController {
     }
 
     @PostMapping("/msgEdit")
-    public String editMessage(@RequestParam("msgId") long messageId,
-                              @RequestParam("msg") String newMessage,
-                              @CookieValue(CHAT_CHANNEL_COOKIE) int channelId
+    public String editMessage(
+            @RequestParam("msgId") long messageId,
+            @RequestParam("msg") String newMessage,
+            @CookieValue(CHAT_CHANNEL_COOKIE) int channelId
     ) {
         channels.get(channelId).ifPresent(channel -> {
             channel.getMessageById(messageId).ifPresent(msg -> msg.setMessage(newMessage));
@@ -87,9 +88,11 @@ public class ChatChannelController {
     }
 
     @PostMapping("/msgEditForm")
-    public String editMessageForm(@RequestParam("msgId") long messageId,
-                                  @RequestParam("msg") String oldMessage,
-                                  Model model) {
+    public String editMessageForm(
+            @RequestParam("msgId") long messageId,
+            @RequestParam("msg") String oldMessage,
+            Model model
+    ) {
         model.addAttribute("msgId", messageId);
         model.addAttribute("msg", oldMessage);
 
@@ -139,8 +142,12 @@ public class ChatChannelController {
     }
 
     @PostMapping("/deleteChannel")
-    public void deleteChannel(@RequestParam("channelId") int channelId) {
+    public String deleteChannel(
+            @RequestParam("channelId") int channelId
+    ) {
         channels.deleteChannel(channelId);
+
+        return "redirect:/channel";
     }
 
 
