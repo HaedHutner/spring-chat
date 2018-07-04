@@ -9,7 +9,6 @@ import java.util.Optional;
 public class ChatChannel {
 
     private static ArrayList<ChatMessage> chatMessages = new ArrayList<>();
-    private static String title;
 
     private ChatChannel() {
     }
@@ -20,14 +19,6 @@ public class ChatChannel {
 
     public void setChatMessages(ArrayList<ChatMessage> chatMessages) {
         this.chatMessages = chatMessages;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public void addMessage(ChatMessage newChatMessage) {
