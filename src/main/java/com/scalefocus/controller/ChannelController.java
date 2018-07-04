@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+
 @Controller
 @RequestMapping("/channels")
 public class ChannelController {
@@ -21,11 +23,20 @@ public class ChannelController {
         this.channels = channels;
     }
 
+    @GetMapping("/")
+    public String redirect() {
+        return "redirect:/channels/" + ChatChannelStorage.DEFAULT_CHANNEL_ID;
+    }
+
     @GetMapping("/{channel_id}")
     public String channels(
+            @CookieValue(value = UserController.USER_ID_COOKIE, required = false) Cookie userId,
             @PathVariable("channel_id") int channelId,
             Model model
     ) {
+        if ( userId == null || !users.getUser(userId.getValue()).isPresent() ) {
+            return "redirect:/users/create";
+        }
 
         model.addAttribute("channels", channels.getAll());
 
