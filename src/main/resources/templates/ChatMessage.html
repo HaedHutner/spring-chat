@@ -19,7 +19,11 @@
             <td th:text="${msg.getTimeStampAsString()}"></td>
             <td th:text="${msg.sender.nickname}"></td>
             <td th:text="${msg.message}"></td>
-            <td><input type="submit" value="Delete"></td>
+            <td>
+                <form action="#" th:action="@{channel}" method="delete">
+                    <input name = "msgId" type="submit" th:value="${msg.messageId}">
+                </form>
+            </td>
 
         </tr>
     </table>

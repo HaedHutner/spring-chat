@@ -9,6 +9,7 @@ public class ChatMessage {
     private User sender;
     private String message;
     private long messageId;
+    private static long count = 0;
 
     private LocalDateTime dateTime = LocalDateTime.now();
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
@@ -16,6 +17,7 @@ public class ChatMessage {
     public ChatMessage(User sender, String message) {
         this.sender = sender;
         this.message = message;
+        this.messageId = count++;
     }
 
     public User getSender() {

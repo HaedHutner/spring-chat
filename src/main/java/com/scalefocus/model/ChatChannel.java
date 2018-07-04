@@ -34,4 +34,14 @@ public class ChatChannel {
     }
 
     public void deleteMessage(ChatMessage deleteChatMessage) { this.chatMessages.remove(deleteChatMessage); }
+
+    public ChatMessage getMessageToDelete(long messageId) {
+        for (ChatMessage messageToDelete : chatMessages) {
+            if (messageToDelete.getMessageId() == messageId) {
+                return messageToDelete;
+            }
+        }
+        return null;
+    }
+
 }
