@@ -6,6 +6,16 @@ html {
     width: 100%;
 }
 
+#channels {
+    float: right;
+    width: 20%;
+}
+
+#messages {
+    float: left;
+    width: 79%;
+}
+
 .hidden {
     display: none;
 }
@@ -71,4 +81,22 @@ html {
 
 .box {
     border: solid;
+}
+
+.channel {
+    width: 100%;
+    display: inline-block;
+}
+
+.channel form {
+    float: left;
+    display: inline;
+}
+
+.channel .channelTitle {
+    float: left;
+}
+
+.channel .switchToChannel {
+    float: left;
 }

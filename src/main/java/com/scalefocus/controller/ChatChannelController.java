@@ -34,7 +34,7 @@ public class ChatChannelController {
             HttpServletResponse response
     ) {
 
-        if ( channelId == null ) {
+        if (channelId == null) {
             Cookie cookie = new Cookie(CHAT_CHANNEL_COOKIE, ChatChannelStorage.DEFAULT_CHANNEL_ID.toString());
             cookie.setPath("/");
             response.addCookie(cookie);
@@ -60,7 +60,7 @@ public class ChatChannelController {
                 channel.addMessage(new ChatMessage(user, message));
             });
         });
-        
+
         return "redirect:/channel";
     }
 
@@ -97,36 +97,41 @@ public class ChatChannelController {
     }
 
     @PostMapping("/newChannel")
-    public String createChannel(@RequestParam("channelName") String channelName,
-                                Model model) {
+    public String createChannel(
+            @RequestParam("channelName") String channelName,
+            Model model
+    ) {
 
         channels.register(new ChatChannel(channelName));
 
-        return "redirect:/Channel";
+        return "redirect:/channel";
     }
 
     @GetMapping("/newChannel")
-    public String getNewChannelForm()
-    {
+    public String getNewChannelForm() {
         return "CreateChannel";
     }
 
-    @GetMapping("/renameChannel")
-    public String renameChannel(@RequestParam int channelId,
-                                @RequestParam String channelName) {
-        for(ChatChannel channel : channels.getAll()) {
-            if(channel.getId() == channelId) {
+    @PostMapping("/renameChannel")
+    public String renameChannel(
+            @RequestParam("channelId") int channelId,
+            @RequestParam("channelName") String channelName
+    ) {
+        for (ChatChannel channel : channels.getAll()) {
+            if (channel.getId() == channelId) {
                 channel.setTitle(channelName);
             }
         }
 
-        return "redirect:/Channel";
+        return "redirect:/channel";
     }
 
-    @PostMapping("/renameChannel")
-    public String renameChannelForm(@RequestParam("channelName") String channelName,
-                                    @RequestParam("channelId") int channelId,
-                                    Model model)  {
+    @GetMapping("/renameChannel")
+    public String renameChannelForm(
+            @RequestParam("channelId") int channelId,
+            @RequestParam("channelName") String channelName,
+            Model model
+    ) {
         model.addAttribute("channelId", channelId);
         model.addAttribute("channelName", channelName);
 
