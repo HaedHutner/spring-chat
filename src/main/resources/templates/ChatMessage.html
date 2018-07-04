@@ -15,6 +15,12 @@
             <div class="timestamp" th:text="${msg.getTimeStampAsString()}"></div>
             <div class="user" th:text="${msg.sender.nickname}"></div>
             <div class="msg" th:text="${msg.message}"></div>
+            <div class="edit">
+                <form action="#" th:action="@{/msgEdit}" method="post">
+                    <input class="hidden" type="text" name="msgId" th:value="${msg.messageId}">
+                    <input type="submit" value="Edit">
+                </form>
+            </div>
             <div class="delete">
                 <form action="#" th:action="@{/msgDelete}" method="post">
                     <input class="hidden" type="text" name="msgId" th:value="${msg.messageId}">
