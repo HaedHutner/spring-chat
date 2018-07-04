@@ -16,7 +16,8 @@
             <div class="user" th:text="${msg.sender.nickname}"></div>
             <div class="msg" th:text="${msg.message}"></div>
             <div class="edit">
-                <form action="#" th:action="@{/msgEdit}" method="post">
+                <form action="#" th:action="@{/msgEditForm}" method="post">
+                    <input class="hidden" type="text" name="msg" th:value="${msg.message}">
                     <input class="hidden" type="text" name="msgId" th:value="${msg.messageId}">
                     <input type="submit" value="Edit">
                 </form>

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Edit</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>msgEdit</title>
 </head>
 <body>
-    <
+    <form action="#" th:action="@{/msgEdit}" method="post">
+        <input class="hidden" type="text" name="msgId" th:value="${msgId}">
+        <p>Edit messsage: <input width="80%" type="text" name="msg" th:value="${msg}"> <input type="submit" value="Edit"></p>
+    </form>
 </body>
 </html>

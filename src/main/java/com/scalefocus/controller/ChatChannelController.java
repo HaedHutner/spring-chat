@@ -46,9 +46,19 @@ public class ChatChannelController {
     }
 
     @PostMapping("/msgEdit")
-    public String editMessage(@RequestParam("msgId") long messageId) {
-        channel.getMessageById(messageId).ifPresent(channel::editMessage);
+    public String editMessage(@RequestParam("msgId") long messageId,
+                              @RequestParam("msg") String newMessage) {
+        channel.getMessageById(messageId).ifPresent(msg -> msg.setMessage(newMessage));
         return "redirect:/channel";
     }
 
+    @PostMapping("/msgEditForm")
+    public String editMessageForm(@RequestParam("msgId") long messageId,
+                                  @RequestParam("msg") String oldMessage,
+                                  Model model) {
+        model.addAttribute("msgId", messageId);
+        model.addAttribute("msg", oldMessage);
+
+        return "EditMessage";
+    }
 }
