@@ -33,7 +33,7 @@ public class MessageController {
             });
         });
 
-        return "redirect:/channels/0";
+        return "redirect:/channels/" + channelId;
     }
 
     @GetMapping("/{message_id}/edit")
@@ -61,7 +61,7 @@ public class MessageController {
             chatChannel.getMessageById(messageId).ifPresent(message -> message.setMessage(newMessage));
         });
 
-        return "redirect:/channels/0";
+        return "redirect:/channels/" + channelId;
     }
 
     @DeleteMapping("/{message_id}/delete")
@@ -73,7 +73,7 @@ public class MessageController {
             chatChannel.getMessageById(messageId).ifPresent(chatChannel::deleteMessage);
         });
 
-        return "redirect:/channels/0";
+        return "redirect:/channels/" + channelId;
     }
 
 }

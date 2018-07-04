@@ -1,5 +1,6 @@
 package com.scalefocus.controller;
 
+import com.scalefocus.storage.ChatChannelStorage;
 import com.scalefocus.storage.UserStorage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -25,7 +26,7 @@ public class HomeController {
         if ( userId == null || !users.getUser(userId.getValue()).isPresent() ) {
             return "redirect:/users/create";
         } else {
-            return "redirect:/channels/0";
+            return "redirect:/channels/" + ChatChannelStorage.DEFAULT_CHANNEL_ID;
         }
     }
 

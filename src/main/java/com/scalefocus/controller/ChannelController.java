@@ -44,7 +44,7 @@ public class ChannelController {
             @RequestParam("channelName") String channelName
     ) {
         channels.register(new ChatChannel(channelName));
-        return "redirect:/channels/0";
+        return "redirect:/channels/" + ChatChannelStorage.DEFAULT_CHANNEL_ID;
     }
 
     @GetMapping("/{channel_id}/edit")
@@ -62,7 +62,7 @@ public class ChannelController {
             @RequestParam("channelName") String channelName
     ) {
         channels.get(channelId).ifPresent(chatChannel -> chatChannel.setTitle(channelName));
-        return "redirect:/channels/0";
+        return "redirect:/channels/" + channelId;
     }
 
     @PostMapping("/{channel_id}/delete")
@@ -70,7 +70,7 @@ public class ChannelController {
             @PathVariable("channel_id") int channelId
     ) {
         channels.deleteChannel(channelId);
-        return "redirect:/channels/0";
+        return "redirect:/channels/" + channelId;
     }
 
 }
