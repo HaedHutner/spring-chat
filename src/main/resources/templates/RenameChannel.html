@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Rename Channel</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
-
+<form action="#" th:action="@{/renameChannel}" method="post">
+    <input class="hidden" type="text" name="channelId" th:value="${channelId}">
+    <p>Rename Channel: <input class="wideField" type="text" name="channelName" th:value="${channelName}"> <input type="submit" value="Rename"></p>
+</form>
 </body>
 </html>
