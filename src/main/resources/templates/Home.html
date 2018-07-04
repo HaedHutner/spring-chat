@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>
-    <center th:text="${channelTitle}"></center>
+    <center th:text="${currentChannel.title}"></center>
 </h1>
 
 <div id="wrapper">
@@ -43,7 +43,7 @@
     </div>
 
     <div id="messages">
-        <div class="message" th:each="msg : ${messages}">
+        <div class="message" th:each="msg : ${currentChannel.messages}">
             <div class="timestamp" th:text="${msg.getTimeStampAsString()}"></div>
             <div class="user" th:text="${msg.sender.nickname}"></div>
             <div class="msg" th:text="${msg.message}"></div>

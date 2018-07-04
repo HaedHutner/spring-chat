@@ -3,11 +3,11 @@ package com.scalefocus.controller;
 import com.scalefocus.storage.UserStorage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.Cookie;
 
-import static com.scalefocus.controller.UserController.SESSION_ID_KEY;
+import static com.scalefocus.controller.UserController.USER_ID_COOKIE;
 
 @Controller
 public class HomeController {
@@ -18,14 +18,14 @@ public class HomeController {
         this.users = storage;
     }
 
-    @RequestMapping("/")
-    public String home(
-            @CookieValue(value = SESSION_ID_KEY, required = false) Cookie sessionId
+    @GetMapping("/")
+    public String index(
+            @CookieValue(value = USER_ID_COOKIE, required = false) Cookie userId
     ) {
-        if ( sessionId == null || !users.getUser(sessionId.getValue()).isPresent() ) {
+        if ( userId == null || !users.getUser(userId.getValue()).isPresent() ) {
             return "redirect:/users/create";
         } else {
-            return "redirect:/channel";
+            return "redirect:/channels/0";
         }
     }
 

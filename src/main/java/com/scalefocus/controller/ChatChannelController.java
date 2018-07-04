@@ -52,7 +52,7 @@ public class ChatChannelController {
     @PostMapping("/channel")
     public String postMessage(
             @RequestParam("msg") String message,
-            @CookieValue(UserController.SESSION_ID_KEY) String sessionId,
+            @CookieValue(UserController.USER_ID_COOKIE) String sessionId,
             @CookieValue(CHAT_CHANNEL_COOKIE) int channelId
     ) {
         users.getUser(sessionId).ifPresent((user) -> {

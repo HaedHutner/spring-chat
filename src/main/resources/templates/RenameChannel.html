@@ -9,7 +9,7 @@
 <body>
 <form action="#" th:action="@{/renameChannel}" method="post">
     <input class="hidden" type="text" name="channelId" th:value="${channelId}">
-    <p>Rename Channel: <input class="wideField" type="text" name="channelName" th:value="${channelName}"> <input type="submit" value="Rename"></p>
+    <p>Rename Channel: <input class="wideField" type="text" name="channelName" th:value="${channel.title}"> <input type="submit" value="Rename"></p>
 </form>
 </body>
 </html>

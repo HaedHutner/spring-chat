@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class UserController {
 
-    public static final String SESSION_ID_KEY = "UserId";
+    public static final String USER_ID_COOKIE = "UserId";
 
     UserStorage storage;
 
@@ -35,7 +35,7 @@ public class UserController {
     ) {
         storage.addUser(user);
 
-        Cookie cookie = new Cookie(SESSION_ID_KEY, user.getSessionId());
+        Cookie cookie = new Cookie(USER_ID_COOKIE, user.getSessionId());
         cookie.setPath("/");
 
         response.addCookie(cookie);
