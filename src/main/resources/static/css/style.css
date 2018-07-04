@@ -50,6 +50,10 @@ html {
     width: 100%;
 }
 
+.wideField {
+    width: 90%;
+}
+
 .createUser {
     background-color: #EEEEEE;
 

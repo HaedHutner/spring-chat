@@ -1,5 +1,6 @@
 package com.scalefocus;
 
+import com.scalefocus.model.ChatChannel;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

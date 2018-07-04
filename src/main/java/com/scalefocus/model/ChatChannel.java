@@ -1,16 +1,37 @@
 package com.scalefocus.model;
 
-import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.Optional;
 
-@Component
 public class ChatChannel {
 
-    private static ArrayList<ChatMessage> chatMessages = new ArrayList<>();
+    private static int count = 0;
 
-    private ChatChannel() {
+    private int id;
+
+    private String title;
+
+    private ArrayList<ChatMessage> chatMessages = new ArrayList<>();
+
+    public ChatChannel(String title) {
+        this.title = title;
+        this.id = count++;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public ArrayList<ChatMessage> getChatMessages() {
@@ -35,5 +56,4 @@ public class ChatChannel {
         }
         return Optional.empty();
     }
-
 }

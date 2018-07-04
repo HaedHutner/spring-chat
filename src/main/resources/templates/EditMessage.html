@@ -9,7 +9,7 @@
 <body>
     <form action="#" th:action="@{/msgEdit}" method="post">
         <input class="hidden" type="text" name="msgId" th:value="${msgId}">
-        <p>Edit messsage: <input type="text" name="msg" th:value="${msg}"> <input type="submit" value="Edit"></p>
+        <p>Edit messsage: <input class="wideField" type="text" name="msg" th:value="${msg}"> <input type="submit" value="Edit"></p>
     </form>
 </body>
 </html>
