@@ -33,7 +33,5 @@ public class ChatChannel {
         this.chatMessages.add(newChatMessage);
     }
 
-    public void deleteMessage(ChatMessage deleteChatMessage) {
-        this.chatMessages.remove(deleteChatMessage);
-    }
+    public void deleteMessage(ChatMessage deleteChatMessage) { this.chatMessages.remove(deleteChatMessage); }
 }

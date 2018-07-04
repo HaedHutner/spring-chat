@@ -11,7 +11,7 @@ public class ChatMessage {
     private long messageId;
 
     private LocalDateTime dateTime = LocalDateTime.now();
-    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH-mm-ss");
+    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
     public ChatMessage(User sender, String message) {
         this.sender = sender;
