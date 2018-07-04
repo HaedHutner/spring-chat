@@ -37,4 +37,12 @@ public class ChatChannelStorage {
         return channels;
     }
 
+    public void deleteChannel(int id) {
+        for(ChatChannel channel : channels) {
+            if(channel.getId() == id) {
+                this.getAll().remove(channel);
+            }
+        }
+    }
+
 }

@@ -60,7 +60,7 @@ public class ChatChannelController {
                 channel.addMessage(new ChatMessage(user, message));
             });
         });
-        
+
         return "redirect:/channel";
     }
 
