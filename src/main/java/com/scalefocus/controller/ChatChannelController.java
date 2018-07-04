@@ -45,4 +45,10 @@ public class ChatChannelController {
         return "redirect:/channel";
     }
 
+    @PostMapping("/msgEdit")
+    public String editMessage(@RequestParam("msgId") long messageId) {
+        channel.getMessageById(messageId).ifPresent(channel::editMessage);
+        return "redirect:/channel";
+    }
+
 }

@@ -36,6 +36,14 @@ public class ChatChannel {
 
     public void deleteMessage(ChatMessage deleteChatMessage) { this.chatMessages.remove(deleteChatMessage); }
 
+    public void editMessage(ChatMessage editChatMessage) {
+        try {
+            this.chatMessages.set(getIndexOfMessage(editChatMessage.getMessageId()), editChatMessage);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Element not found");
+        }
+    }
+
     public Optional<ChatMessage> getMessageById(long messageId) {
         for (ChatMessage msg : chatMessages) {
             if (msg.getMessageId() == messageId) {
@@ -43,6 +51,16 @@ public class ChatChannel {
             }
         }
         return Optional.empty();
+    }
+
+    public int getIndexOfMessage(long messageId){
+        int i;
+        for (i = 0; i < chatMessages.size(); i++) {
+            if(chatMessages.get(i).getMessageId() == messageId) {
+                return i;
+            }
+        }
+        return -1;
     }
 
 }
