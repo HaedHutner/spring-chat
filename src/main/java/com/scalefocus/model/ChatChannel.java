@@ -3,6 +3,7 @@ package com.scalefocus.model;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Component
 public class ChatChannel {
@@ -35,13 +36,13 @@ public class ChatChannel {
 
     public void deleteMessage(ChatMessage deleteChatMessage) { this.chatMessages.remove(deleteChatMessage); }
 
-    public ChatMessage getMessageToDelete(long messageId) {
-        for (ChatMessage messageToDelete : chatMessages) {
-            if (messageToDelete.getMessageId() == messageId) {
-                return messageToDelete;
+    public Optional<ChatMessage> getMessageById(long messageId) {
+        for (ChatMessage msg : chatMessages) {
+            if (msg.getMessageId() == messageId) {
+                return Optional.of(msg);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
 }

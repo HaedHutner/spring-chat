@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class UserController {
 
-    public static final String SESSION_ID_KEY = "SessionId";
+    public static final String SESSION_ID_KEY = "UserId";
 
     UserStorage storage;
 

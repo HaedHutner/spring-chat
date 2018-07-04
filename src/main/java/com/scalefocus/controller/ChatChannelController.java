@@ -39,11 +39,9 @@ public class ChatChannelController {
         return "redirect:/channel";
     }
 
-    @DeleteMapping ("/channel")
+    @PostMapping("/msgDelete")
     public String deleteMessage(@RequestParam("msgId") long messageId) {
-        ChatMessage messageToDelete = channel.getMessageToDelete(messageId);
-        channel.deleteMessage(messageToDelete);
-
+        channel.getMessageById(messageId).ifPresent(channel::deleteMessage);
         return "redirect:/channel";
     }
 

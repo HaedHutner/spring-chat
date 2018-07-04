@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>All Users</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
 
-<h1>Users</h1>
+    <h1>Users</h1>
 
-<table>
-    <th>
-        <tr>
-            <td>Session Id</td>
-            <td>Nickname</td>
+    <table>
+        <th>
+            <tr>
+                <td>Session Id</td>
+                <td>Nickname</td>
+            </tr>
+        </th>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.sessionId}"></td>
+            <td th:text="${user.nickname}"></td>
         </tr>
-    </th>
-    <tr th:each="user : ${users}">
-        <td th:text="${user.sessionId}"></td>
-        <td th:text="${user.nickname}"></td>
-    </tr>
-</table>
+    </table>
 
 </body>
 </html>
