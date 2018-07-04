@@ -132,4 +132,11 @@ public class ChatChannelController {
 
         return "RenameChannel";
     }
+
+    @PostMapping("/deleteChannel")
+    public void deleteChannel(@RequestParam("channelId") int channelId) {
+        channels.deleteChannel(channelId);
+    }
+
+
 }
