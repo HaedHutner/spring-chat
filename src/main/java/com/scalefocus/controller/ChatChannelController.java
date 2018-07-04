@@ -95,4 +95,29 @@ public class ChatChannelController {
 
         return "EditMessage";
     }
+
+    @PostMapping("/newChannel")
+    public String createChannel(@RequestParam("channelName") String channelName,
+                                Model model) {
+
+        channels.register(new ChatChannel(channelName));
+
+        return "redirect:/Channel";
+    }
+
+    @GetMapping("/newChannel")
+    public String getNewChannelForm()
+    {
+        return "CreateChannel";
+    }
+
+    @PostMapping("/renameChannel")
+    public String renameChannelForm(@RequestParam("channelName") String channelName,
+                                @RequestParam("channelId") int channelId,
+                                Model model)  {
+        model.addAttribute("channelId", channelId);
+        model.addAttribute("channelName", channelName);
+
+        return "RenameChannel";
+    }
 }
