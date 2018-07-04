@@ -34,7 +34,12 @@ html {
 
 .message .delete {
     float: left;
-    width: 10%;
+    width: 5%;
+}
+
+.message .edit {
+    float: left;
+    width: 5%;
 }
 
 .msgSend {
