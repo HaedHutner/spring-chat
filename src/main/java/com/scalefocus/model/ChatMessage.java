@@ -6,9 +6,11 @@ import java.time.format.DateTimeFormatter;
 
 public class ChatMessage {
 
+    private long id;
+
     private User sender;
     private String message;
-    private long messageId;
+
     private static long count = 0;
 
     private LocalDateTime dateTime = LocalDateTime.now();
@@ -17,7 +19,7 @@ public class ChatMessage {
     public ChatMessage(User sender, String message) {
         this.sender = sender;
         this.message = message;
-        this.messageId = count++;
+        this.id = count++;
     }
 
     public User getSender() {
@@ -36,12 +38,12 @@ public class ChatMessage {
         this.message = message;
     }
 
-    public long getMessageId() {
-        return messageId;
+    public long getId() {
+        return id;
     }
 
-    public void setMessageId(long messageId) {
-        this.messageId = messageId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public LocalDateTime getDateTime() {

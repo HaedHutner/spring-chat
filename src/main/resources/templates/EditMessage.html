@@ -7,9 +7,8 @@
     <link th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
-    <form action="#" th:action="@{/msgEdit}" method="post">
-        <input class="hidden" type="text" name="msgId" th:value="${msgId}">
-        <p>Edit messsage: <input class="wideField" type="text" name="msg" th:value="${msg}"> <input type="submit" value="Edit"></p>
+    <form action="#" th:action="@{/channels/{channel_id}/messages/{message_id}/edit(channel_id=${channel.id},message_id=${message.id})}" method="post">
+        <p>Edit messsage: <input class="wideField" type="text" name="msg" th:value="${message.message}"> <input type="submit" value="Edit"></p>
     </form>
 </body>
 </html>

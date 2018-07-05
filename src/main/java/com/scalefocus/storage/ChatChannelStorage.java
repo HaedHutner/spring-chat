@@ -38,6 +38,7 @@ public class ChatChannelStorage {
     }
 
     public void deleteChannel(int id) {
+        if ( id == ChatChannelStorage.DEFAULT_CHANNEL_ID ) return;
         get(id).ifPresent(channels::remove);
     }
 

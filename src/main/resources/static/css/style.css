@@ -22,6 +22,7 @@ html {
 
 .message {
     width: 100%;
+    display: block;
 }
 
 .message .timestamp {
@@ -99,4 +100,7 @@ html {
 
 .channel .switchToChannel {
     float: left;
+}
+
+.method-delete {
 }

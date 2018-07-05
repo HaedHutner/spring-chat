@@ -7,9 +7,8 @@
     <link th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
-<form action="#" th:action="@{/renameChannel}" method="post">
-    <input class="hidden" type="text" name="channelId" th:value="${channelId}">
-    <p>Rename Channel: <input class="wideField" type="text" name="channelName" th:value="${channelName}"> <input type="submit" value="Rename"></p>
+<form action="#" th:action="@{/channels/{channel_id}/edit(channel_id=${channel.id})}" method="post">
+    <p>Rename Channel: <input class="wideField" type="text" name="channelName" th:value="${channel.title}"> <input type="submit" value="Rename"></p>
 </form>
 </body>
 </html>

@@ -50,7 +50,7 @@ public class ChatChannel {
 
     public Optional<ChatMessage> getMessageById(long messageId) {
         for (ChatMessage msg : chatMessages) {
-            if (msg.getMessageId() == messageId) {
+            if (msg.getId() == messageId) {
                 return Optional.of(msg);
             }
         }
