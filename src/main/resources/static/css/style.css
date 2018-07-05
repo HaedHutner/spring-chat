@@ -26,6 +26,10 @@ html {
     display: block;
 }
 
+.message:hover {
+    background-color: #DDDDDD;
+}
+
 .message .timestamp {
     float: left;
     margin-right: 5px;
@@ -89,6 +93,10 @@ html {
     float: left;
     width: 100%;
     display: block;
+}
+
+.channel:hover {
+    background-color: #DDDDDD;
 }
 
 .channel .title {
