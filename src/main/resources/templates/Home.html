@@ -5,6 +5,8 @@
     <title>Chat Messages</title>
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script th:src="@{/js/script.js}" type="text/javascript"></script>
 </head>
 <body>
 <h1>
@@ -14,55 +16,31 @@
 <div id="wrapper">
 
     <div id="channels">
-        <form action="#" th:action="@{/newChannel}" method="get">
-            <input type="submit" value="Create New Channel">
-        </form>
+        <a th:href="@{/channels/create}">Create New Channel</a>
 
         <div class="channel" th:each="channel : ${channels}">
-            <div class="channelTitle" th:text="${channel.title}"></div>
             <div class="actions">
 
-                <form action="#" th:action="@{/switchChannel}" method="get">
-                    <input class="hidden" type="text" name="channelId" th:value="${channel.id}">
-                    <input type="submit" value="Switch">
-                </form>
+                <a th:href="@{/channels/{channel_id}(channel_id=${channel.id})}" th:text="${channel.title}"></a>
 
-                <form action="#" th:action="@{/renameChannel}" method="get">
-                    <input class="hidden" type="text" name="channelId" th:value="${channel.id}">
-                    <input class="hidden" type="text" name="channelName" th:value="${channel.title}">
-                    <input type="submit" value="Rename">
-                </form>
+                <a th:href="@{/channels/{channel_id}/edit(channel_id=${channel.id})}">Edit</a>
 
-                <form action="#" th:action="@{/deleteChannel}" method="post">
-                    <input class="hidden" type="text" name="channelId" th:value="${channel.id}">
-                    <input type="submit" value="Delete">
-                </form>
+                <a class="method-delete" th:href="@{/channels/{channel_id}/delete(channel_id=${channel.id})}">Delete</a>
 
             </div>
         </div>
     </div>
 
     <div id="messages">
-        <div class="message" th:each="msg : ${currentChannel.messages}">
+        <div class="message" th:each="msg : ${currentChannel.chatMessages}">
             <div class="timestamp" th:text="${msg.getTimeStampAsString()}"></div>
             <div class="user" th:text="${msg.sender.nickname}"></div>
             <div class="msg" th:text="${msg.message}"></div>
             <div class="edit">
-
-                <form action="#" th:action="@{/msgEditForm}" method="post">
-                    <input class="hidden" type="text" name="msg" th:value="${msg.message}">
-                    <input class="hidden" type="text" name="msgId" th:value="${msg.messageId}">
-                    <input type="submit" value="Edit">
-                </form>
-
+                <a th:href="@{/channels/{channel_id}/messages/{message_id}/edit(channel_id=${currentChannel.id},message_id=${msg.id})}">Edit</a>
             </div>
             <div class="delete">
-
-                <form action="#" th:action="@{/msgDelete}" method="post">
-                    <input class="hidden" type="text" name="msgId" th:value="${msg.messageId}">
-                    <input type="submit" value="Delete">
-                </form>
-
+                <a class="method-delete" th:href="@{/channels/{channel_id}/messages/{message_id}/delete(channel_id=${currentChannel.id},message_id=${msg.id})}">Delete</a>
             </div>
         </div>
     </div>
@@ -70,7 +48,7 @@
 </div>
 
 <div class="msgSend">
-    <form action="#" th:action="@{channel}" method="post">
+    <form action="#" th:action="@{/channels/{channel_id}/messages/post(channel_id=${currentChannel.id})}" method="post">
         <p>Messsage: <input class="wideField" type="text" name="msg"> <input type="submit" value="Send"></p>
     </form>
 </div>

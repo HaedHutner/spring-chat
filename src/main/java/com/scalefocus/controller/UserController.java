@@ -40,7 +40,7 @@ public class UserController {
 
         response.addCookie(cookie);
 
-        return "redirect:/channel";
+        return "redirect:/channels/";
     }
 
     @GetMapping("/users/all")

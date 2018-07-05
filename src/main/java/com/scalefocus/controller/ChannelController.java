@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/channels")
@@ -40,7 +41,12 @@ public class ChannelController {
 
         model.addAttribute("channels", channels.getAll());
 
-        channels.get(channelId).ifPresent(chatChannel -> model.addAttribute("currentChannel", chatChannel));
+        Optional<ChatChannel> currentChannel = channels.get(channelId);
+        if ( currentChannel.isPresent() ) {
+            model.addAttribute("currentChannel", currentChannel.get());
+        } else {
+            model.addAttribute("currentChannel", ChatChannelStorage.DEFAULT_CHANNEL);
+        }
 
         return "Home";
     }
@@ -64,10 +70,10 @@ public class ChannelController {
             Model model
     ) {
         channels.get(channelId).ifPresent(chatChannel -> model.addAttribute("channel", chatChannel));
-        return "RenameChannel";
+        return "EditChannel";
     }
 
-    @PutMapping("/{channel_id}/edit")
+    @PostMapping("/{channel_id}/edit")
     public String editChannel(
             @PathVariable("channel_id") int channelId,
             @RequestParam("channelName") String channelName
@@ -76,12 +82,17 @@ public class ChannelController {
         return "redirect:/channels/" + channelId;
     }
 
-    @PostMapping("/{channel_id}/delete")
+    @DeleteMapping("/{channel_id}/delete")
     public String deleteChannel(
             @PathVariable("channel_id") int channelId
     ) {
         channels.deleteChannel(channelId);
         return "redirect:/channels/" + channelId;
+    }
+
+    @GetMapping("/{channel_id}/delete")
+    public String deleteChannelGet() {
+        return "redirect:/channels/" + ChatChannelStorage.DEFAULT_CHANNEL_ID;
     }
 
 }

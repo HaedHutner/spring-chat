@@ -43,6 +43,7 @@ public class MessageController {
             Model model
     ) {
         channels.get(channelId).ifPresent(chatChannel -> {
+            model.addAttribute("channel", chatChannel);
             chatChannel.getMessageById(messageId).ifPresent(message -> {
                 model.addAttribute("message", message);
             });
@@ -51,7 +52,7 @@ public class MessageController {
         return "EditMessage";
     }
 
-    @PutMapping("/{message_id}/edit")
+    @PostMapping("/{message_id}/edit")
     public String editMessage(
             @PathVariable("channel_id") int channelId,
             @PathVariable("message_id") long messageId,
@@ -73,6 +74,13 @@ public class MessageController {
             chatChannel.getMessageById(messageId).ifPresent(chatChannel::deleteMessage);
         });
 
+        return "redirect:/channels/" + channelId;
+    }
+
+    @GetMapping("/{message_id}/delete")
+    public String deleteMessage(
+            @PathVariable("channel_id") int channelId
+    ) {
         return "redirect:/channels/" + channelId;
     }
 
