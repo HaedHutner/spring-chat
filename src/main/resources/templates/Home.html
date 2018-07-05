@@ -15,32 +15,37 @@
 
 <div id="wrapper">
 
-    <div id="channels">
-        <a th:href="@{/channels/create}">Create New Channel</a>
-
-        <div class="channel" th:each="channel : ${channels}">
-            <div class="actions">
-
-                <a th:href="@{/channels/{channel_id}(channel_id=${channel.id})}" th:text="${channel.title}"></a>
-
-                <a th:href="@{/channels/{channel_id}/edit(channel_id=${channel.id})}">Edit</a>
-
-                <a class="method-delete" th:href="@{/channels/{channel_id}/delete(channel_id=${channel.id})}">Delete</a>
-
-            </div>
-        </div>
-    </div>
-
     <div id="messages">
+
         <div class="message" th:each="msg : ${currentChannel.chatMessages}">
             <div class="timestamp" th:text="${msg.getTimeStampAsString()}"></div>
             <div class="user" th:text="${msg.sender.nickname}"></div>
-            <div class="msg" th:text="${msg.message}"> </div>
+            <div class="msg" th:text="${msg.message}"></div>
             <div class="edit">
                 <a th:href="@{/channels/{channel_id}/messages/{message_id}/edit(channel_id=${currentChannel.id},message_id=${msg.id})}">Edit</a>
             </div>
             <div class="delete">
-                <a class="method-delete" th:href="@{/channels/{channel_id}/messages/{message_id}/delete(channel_id=${currentChannel.id},message_id=${msg.id})}">Delete</a>
+                <a class="method-delete"
+                   th:href="@{/channels/{channel_id}/messages/{message_id}/delete(channel_id=${currentChannel.id},message_id=${msg.id})}">Delete</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="channels">
+        <a th:href="@{/channels/create}">Create New Channel</a>
+
+        <div class="channel" th:each="channel : ${channels}">
+            <div class="title">
+                <a th:href="@{/channels/{channel_id}(channel_id=${channel.id})}" th:text="${channel.title}"></a>
+            </div>
+
+            <div class="edit">
+                <a th:href="@{/channels/{channel_id}/edit(channel_id=${channel.id})}">Edit</a>
+            </div>
+
+            <div class="delete">
+                <a class="method-delete" th:href="@{/channels/{channel_id}/delete(channel_id=${channel.id})}">Delete</a>
             </div>
         </div>
     </div>
@@ -52,5 +57,6 @@
         <p>Messsage: <input class="wideField" type="text" name="msg"> <input type="submit" value="Send"></p>
     </form>
 </div>
+
 </body>
 </html>

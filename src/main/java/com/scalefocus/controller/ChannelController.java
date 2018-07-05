@@ -35,14 +35,14 @@ public class ChannelController {
             @PathVariable("channel_id") int channelId,
             Model model
     ) {
-        if ( userId == null || !users.getUser(userId.getValue()).isPresent() ) {
+        if (userId == null || !users.getUser(userId.getValue()).isPresent()) {
             return "redirect:/users/create";
         }
 
         model.addAttribute("channels", channels.getAll());
 
         Optional<ChatChannel> currentChannel = channels.get(channelId);
-        if ( currentChannel.isPresent() ) {
+        if (currentChannel.isPresent()) {
             model.addAttribute("currentChannel", currentChannel.get());
         } else {
             model.addAttribute("currentChannel", ChatChannelStorage.DEFAULT_CHANNEL);

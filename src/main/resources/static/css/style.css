@@ -21,6 +21,7 @@ html {
 }
 
 .message {
+    float: left;
     width: 100%;
     display: block;
 }
@@ -85,21 +86,24 @@ html {
 }
 
 .channel {
+    float: left;
     width: 100%;
-    display: inline-block;
+    display: block;
 }
 
-.channel form {
+.channel .title {
     float: left;
-    display: inline;
+    width: 50%;
 }
 
-.channel .channelTitle {
+.channel .edit {
     float: left;
+    width: 25%;
 }
 
-.channel .switchToChannel {
+.channel .delete {
     float: left;
+    width: 25%;
 }
 
 .method-delete {

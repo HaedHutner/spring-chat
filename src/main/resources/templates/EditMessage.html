@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Edit Message</title>
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
 <body>
-    <form action="#" th:action="@{/channels/{channel_id}/messages/{message_id}/edit(channel_id=${channel.id},message_id=${message.id})}" method="post">
-        <p>Edit messsage: <input class="wideField" type="text" name="msg" th:value="${message.message}"> <input type="submit" value="Edit"></p>
-    </form>
+<form action="#"
+      th:action="@{/channels/{channel_id}/messages/{message_id}/edit(channel_id=${channel.id},message_id=${message.id})}"
+      method="post">
+    <p>Edit messsage: <input class="wideField" type="text" name="msg" th:value="${message.message}"> <input type="submit" value="Edit"></p>
+</form>
 </body>
 </html>
