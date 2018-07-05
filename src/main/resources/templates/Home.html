@@ -35,7 +35,7 @@
         <div class="message" th:each="msg : ${currentChannel.chatMessages}">
             <div class="timestamp" th:text="${msg.getTimeStampAsString()}"></div>
             <div class="user" th:text="${msg.sender.nickname}"></div>
-            <div class="msg" th:text="${msg.message}"></div>
+            <div class="msg" th:text="${msg.message}"> </div>
             <div class="edit">
                 <a th:href="@{/channels/{channel_id}/messages/{message_id}/edit(channel_id=${currentChannel.id},message_id=${msg.id})}">Edit</a>
             </div>

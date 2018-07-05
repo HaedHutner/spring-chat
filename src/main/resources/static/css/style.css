@@ -22,6 +22,7 @@ html {
 
 .message {
     width: 100%;
+    display: block;
 }
 
 .message .timestamp {
@@ -102,13 +103,4 @@ html {
 }
 
 .method-delete {
-}
-
-.method-put {
-}
-
-.method-post {
-}
-
-.method-get {
 }
