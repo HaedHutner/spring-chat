@@ -15,8 +15,8 @@ import java.util.Optional;
 @RequestMapping("/channels")
 public class ChannelController {
 
-    ChatChannelStorage channels;
-    UserStorage users;
+    private ChatChannelStorage channels;
+    private UserStorage users;
 
     @Autowired
     private ChannelController(ChatChannelStorage channels, UserStorage users) {

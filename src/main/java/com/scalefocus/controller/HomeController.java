@@ -13,7 +13,7 @@ import static com.scalefocus.controller.UserController.USER_ID_COOKIE;
 @Controller
 public class HomeController {
 
-    UserStorage users;
+    private UserStorage users;
 
     public HomeController(UserStorage storage) {
         this.users = storage;

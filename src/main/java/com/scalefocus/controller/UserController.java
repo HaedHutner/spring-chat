@@ -15,7 +15,7 @@ public class UserController {
 
     public static final String USER_ID_COOKIE = "UserId";
 
-    UserStorage storage;
+    private UserStorage storage;
 
     @Autowired
     public UserController(UserStorage storage) {
