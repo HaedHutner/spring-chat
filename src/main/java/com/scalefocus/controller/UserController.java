@@ -42,10 +42,4 @@ public class UserController {
 
         return "redirect:/channels/";
     }
-
-    @GetMapping("/users/all")
-    public String getAll(Model model) {
-        model.addAttribute("users", storage.getAll());
-        return "ShowUsers";
-    }
 }
