@@ -23,7 +23,7 @@ html {
 .message {
     float: left;
     width: 100%;
-    display: block;
+    display: inline-block;
     transition: .15s;
 }
 
@@ -46,7 +46,7 @@ html {
 .message .msg {
     float: left;
     margin-right: 5px;
-    width: 69%;
+    width: 68%;
 }
 
 .message .delete {
