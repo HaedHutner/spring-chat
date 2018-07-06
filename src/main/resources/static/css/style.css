@@ -92,7 +92,8 @@ html {
 .channel {
     float: left;
     width: 100%;
-    display: block;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 .channel:hover {
@@ -115,4 +116,24 @@ html {
 }
 
 .method-delete {
+}
+
+.btn {
+    color: #000000;
+    text-decoration: none;
+    text-align: center;
+
+    margin: 3px;
+    padding: 5px;
+
+    border: solid;
+    border-color: #BBBBBB;
+    border-width: 1px;
+    border-radius: 5px;
+
+    display: block;
+}
+
+.btn:hover {
+    background-color: #CCCCCC;
 }

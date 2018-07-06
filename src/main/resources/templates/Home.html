@@ -22,10 +22,10 @@
             <div class="user" th:text="${msg.sender.nickname}"></div>
             <div class="msg" th:text="${msg.message}"></div>
             <div class="edit">
-                <a th:href="@{/channels/{channel_id}/messages/{message_id}/edit(channel_id=${currentChannel.id},message_id=${msg.id})}">Edit</a>
+                <a class="btn" th:href="@{/channels/{channel_id}/messages/{message_id}/edit(channel_id=${currentChannel.id},message_id=${msg.id})}">Edit</a>
             </div>
             <div class="delete">
-                <a class="method-delete"
+                <a class="method-delete btn"
                    th:href="@{/channels/{channel_id}/messages/{message_id}/delete(channel_id=${currentChannel.id},message_id=${msg.id})}">Delete</a>
             </div>
         </div>
@@ -33,19 +33,19 @@
     </div>
 
     <div id="channels">
-        <a th:href="@{/channels/create}">Create New Channel</a>
+        <a class="btn" th:href="@{/channels/create}">Create New Channel</a>
 
         <div class="channel" th:each="channel : ${channels}">
             <div class="title">
-                <a th:href="@{/channels/{channel_id}(channel_id=${channel.id})}" th:text="${channel.title}"></a>
+                <a class="btn" th:href="@{/channels/{channel_id}(channel_id=${channel.id})}" th:text="${channel.title}"></a>
             </div>
 
             <div class="edit">
-                <a th:href="@{/channels/{channel_id}/edit(channel_id=${channel.id})}">Edit</a>
+                <a class="btn" th:href="@{/channels/{channel_id}/edit(channel_id=${channel.id})}">Edit</a>
             </div>
 
             <div class="delete">
-                <a class="method-delete" th:href="@{/channels/{channel_id}/delete(channel_id=${channel.id})}">Delete</a>
+                <a class="method-delete btn" th:href="@{/channels/{channel_id}/delete(channel_id=${channel.id})}">Delete</a>
             </div>
         </div>
     </div>
