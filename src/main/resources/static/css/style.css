@@ -24,6 +24,7 @@ html {
     float: left;
     width: 100%;
     display: block;
+    transition: .15s;
 }
 
 .message:hover {
@@ -92,8 +93,11 @@ html {
 .channel {
     float: left;
     width: 100%;
+
     padding-top: 3px;
     padding-bottom: 3px;
+
+    transition: .15s;
 }
 
 .channel:hover {
@@ -132,6 +136,7 @@ html {
     border-radius: 5px;
 
     display: block;
+    transition: .15s;
 }
 
 .btn:hover {
