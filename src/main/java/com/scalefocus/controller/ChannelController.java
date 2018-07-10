@@ -24,7 +24,7 @@ public class ChannelController {
         this.channels = channels;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public String redirect() {
         return "redirect:/channels/" + ChatChannelStorage.DEFAULT_CHANNEL_ID;
     }

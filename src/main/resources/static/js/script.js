@@ -1,13 +1,13 @@
 $(document).ready( function() {
 
-            $(document).on("click", ".method-delete", function() {
+    $(document).on("click", ".method-delete", function() {
 
-                var link = $(this).attr("href");
+        var link = $(this).attr("href");
 
-                $.ajax({
-                    url: link,
-                    type: "DELETE"
-                });
-            });
+        $.ajax({
+            url: link,
+            type: "DELETE"
+        });
+    });
 
 });
